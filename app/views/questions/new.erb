@@ -1,0 +1,15 @@
+
+<h2>New Question:</h2>
+<%= form_for @question, url: {action: "create"}, html: {class: "form"} do |f| %>
+  <p>Question Title: <p>
+  <%= f.text_field :title %><br>
+  <p>Question Description</p>
+  <%= f.text_area :description, size: "40x12" %><br>
+  <%= f.submit "Submit" %>
+<% end %>
+<br>
+<p id="notice"><%= notice %></p>
+
+<% if !@errors.nil? %>
+  <p><font color='red'> <%= @errors %></font><p>
+<% end %>

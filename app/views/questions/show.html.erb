@@ -1,0 +1,21 @@
+<h1>Rescue Mission</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= @questions.title %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+        <tr>
+          <td><%=@questions.description %></td>
+        </tr>
+        <tr>
+          <td>Created at: <%=@questions.created_at %></td>
+        </tr>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Back to Questions', questions_path %>
