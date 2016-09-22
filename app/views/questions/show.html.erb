@@ -14,11 +14,16 @@
     <ul>
       <% @answers.each do |a| %>
 
-        <li><%= a.description %>
+        <li>
           <% if a.best_answer == true  %>
-          <%= "<--- BEST ANSWER" %>
+            <%= "👍" %>
           <% end %>
-          <%= link_to 'Best Answer', bestanswer_path(a.id) %></li>
+          <%= a.description %>
+          <% if a.best_answer == true  %>
+            <%= "👍" %>
+          <% end %>
+          <%= link_to 'Best Answer', bestanswer_path(a.id) %>
+        </li>
       <% end %>
     <% end %>
 </ul>
