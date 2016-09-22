@@ -1,5 +1,7 @@
 
 <h1>Rescue Mission</h1>
+<p id="notice"><font color='magenta'><%= notice %></font></p>
+
 <p>
   <%= link_to 'Ask a Question', new_question_path %>
 </p><br>
@@ -12,11 +14,13 @@
 
   <tbody>
     <% if !@questions.nil? %>
+    <% num = 1 %>
       <% @questions.each do |question| %>
         <tr>
-          <td><%= link_to question.title, question %></td>
+          <td id='<%= num %>'><%= link_to question.title, question %></td>
           <td>Created at: <%= question.created_at %>
         </tr>
+        <% num += 1 %>
       <% end %>
     <% end %>
   </tbody>

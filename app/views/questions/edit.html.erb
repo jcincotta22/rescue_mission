@@ -1,6 +1,6 @@
 
-<h2>New Question:</h2>
-<%= form_for @question, url: {action: "create"}, html: {class: "form"} do |f| %>
+<h2>Edit Question:</h2>
+<%= form_for @question, url: {action: "update"}, html: {class: "form"} do |f| %>
   <p>Question Title: <p>
   <%= f.text_field :title %><br>
   <p>Question Description</p>
@@ -9,7 +9,8 @@
 <% end %>
 <br>
 <p id="notice"><%= notice %></p>
-
+<br>
+<%= link_to 'Delete', @question, method: :delete, data: { confirm: "Your sure?"} %>
 
 <% if !@errors.nil? %>
   <p><font color='red'> <%= @errors %></font><p>

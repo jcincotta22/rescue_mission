@@ -1,0 +1,7 @@
+<h1>New Answer for <%= @question.title %></h1>
+
+<%= form_for [@question, @answer] do |f| %>
+  <%= f.text_area :description, size: "40x12" %>
+
+  <%= f.submit %>
+<% end %>

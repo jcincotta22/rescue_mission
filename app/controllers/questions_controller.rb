@@ -4,8 +4,9 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @questions = Question.find(params[:id])
-    binding.pry
+    @question = Question.find(params[:id])
+    @answer = Answer.new
+    @answers = @question.answers
   end
 
   def new
@@ -21,6 +22,26 @@ class QuestionsController < ApplicationController
       @errors = @question.errors.full_messages.join(', ')
       render action: 'new'
     end
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    if @question.update_attributes(question_params)
+      redirect_to @question, notice: 'Question was successfully updated.'
+    else
+      @errors = @question.errors.full_messages.join(', ')
+      render action: 'edit'
+    end
+  end
+
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to questions_path, notice: 'Successfully deleted question.'
   end
 
   private
